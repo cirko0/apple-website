@@ -20,7 +20,10 @@ Sentry.init({
   ],
 
   tracesSampleRate: 1.0,
-  tracePropagationTargets: ["localhost", /^https:\/\/yourserver\.io\/api/],
+  tracePropagationTargets: [
+    "localhost",
+    "https://iphone-15-website.netlify.app/",
+  ],
   replaysSessionSampleRate: 0.1,
   replaysOnErrorSampleRate: 1.0,
 });

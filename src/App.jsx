@@ -8,6 +8,7 @@ import Model from "./components/Model";
 import Features from "./components/Features";
 import HowItWorks from "./components/HowItWorks";
 import Footer from "./components/Footer";
+
 const App = () => {
   return (
     <main className="bg-black">
@@ -15,9 +16,9 @@ const App = () => {
       <Hero />
       <Highlights />
       <Model />
-      <Features/>
-      <HowItWorks/>
-      <Footer/>
+      <Features />
+      <HowItWorks />
+      <Footer />
     </main>
   );
 };
