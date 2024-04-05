@@ -173,7 +173,7 @@ const VideoCarousel = () => {
                   className={`${
                     list.id === 2 && "translate-x-44"
                   } pointer-events-none`}
-                  preload="metadata"
+                  preload="auto"
                   muted
                   ref={(el) => (videoRef.current[i] = el)}
                   onEnded={() =>
@@ -186,7 +186,7 @@ const VideoCarousel = () => {
                   }
                   onLoadedMetadata={(e) => handleLoadedMetaData(i, e)}
                 >
-                  <source src={list.video} type="video/mp4" />
+                  <source src={list.video} type="video/mp4" autoPlay />
                 </video>
               </div>
 
@@ -207,11 +207,11 @@ const VideoCarousel = () => {
           {videoRef.current.map((_, i) => (
             <span
               key={i}
-              className="relative mx-2 size-3 cursor-pointer rounded-full bg-gray-200"
+              className="relative mx-2 size-3 cursor-pointer rounded-full bg-gray-200 overflow-hidden"
               ref={(el) => (videoDivRef.current[i] = el)}
             >
               <span
-                className="absolute size-full rounded-full"
+                className="absolute size-full"
                 ref={(el) => (videoSpanRef.current[i] = el)}
               />
             </span>
