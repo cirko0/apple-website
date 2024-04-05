@@ -9,7 +9,7 @@ export const animateWithGsap = (target, animationProps, scrollProps) => {
     scrollTrigger: {
       trigger: target,
       toggleActions: "play none none none",
-      start: "top 100%",
+      start: "top 85%",
       ...scrollProps,
     },
   });
