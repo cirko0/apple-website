@@ -1,17 +1,13 @@
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import React from "react";
 
 import { rightImg, watchImg } from "../utils";
 import VideoCarousel from "./VideoCarousel";
+import { animateWithGsap } from "../utils/animations";
 const Highlights = () => {
   useGSAP(() => {
-    gsap.to("#title", {
-      opacity: 1,
-      y: 0,
-    });
-
-    gsap.to(".link", { opacity: 1, y: 0, duration: 1, stagger: 0.5 });
+    animateWithGsap("#title", { opacity: 1, y: 0 });
+    animateWithGsap(".link", { opacity: 1, y: 0, duration: 1, stagger: 0.25 });
   });
 
   return (
@@ -21,9 +17,9 @@ const Highlights = () => {
     >
       <div className="screen-max-width">
         <div className="mb-12 w-full items-end justify-between md:flex">
-          <h1 id="title" className="section-heading">
+          <h2 id="title" className="section-heading">
             Get the highlights.
-          </h1>
+          </h2>
 
           <div className="flex flex-wrap items-end gap-5">
             <p className="link">

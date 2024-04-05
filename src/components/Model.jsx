@@ -9,7 +9,7 @@ import { yellowImg } from "../utils";
 import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
 import { models, sizes } from "../constants";
-import { animateWithGsapTimeline } from "../utils/animations";
+import { animateWithGsap, animateWithGsapTimeline } from "../utils/animations";
 
 const Model = () => {
   const [size, setSize] = useState("small");
@@ -53,18 +53,15 @@ const Model = () => {
 
   // Animations for the heading
   useGSAP(() => {
-    gsap.to("#heading", {
-      y: 0,
-      opacity: 1,
-    });
+    animateWithGsap("#heading", { y: 0, opacity: 1 });
   }, []);
 
   return (
     <section className="common-padding">
       <div className="screen-max-width">
-        <h1 id="heading" className="section-heading">
+        <h2 id="heading" className="section-heading">
           Take a closer look.
-        </h1>
+        </h2>
 
         <div className="mt-5 flex flex-col items-center">
           <div className="relative h-[75vh] w-full overflow-hidden md:h-[90vh]">

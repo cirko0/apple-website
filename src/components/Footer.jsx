@@ -8,9 +8,14 @@ const Footer = () => {
         <div>
           <p className="font-semibold text-gray text-xs">
             More ways to shop:{" "}
-            <span className="text-blue underline">Find an Apple Store</span> or{" "}
-            <span className="text-blue underline">other retailer</span> near
-            you.
+            <span className="text-blue underline cursor-pointer">
+              Find an Apple Store
+            </span>{" "}
+            or{" "}
+            <span className="text-blue underline cursor-pointer">
+              other retailer
+            </span>{" "}
+            near you.
           </p>
 
           <p className="font-semibold text-gray text-xs">
@@ -24,12 +29,15 @@ const Footer = () => {
           <p className="text-gray text-xs font-semibold">
             Copyright © 2024 Apple Inc. All rights reserved.
           </p>
-          <div className="flex">
+          <div className="flex flex-wrap">
             {footerLinks.map((link, i) => (
-              <p key={link} className="text-gray text-xs font-semibold">
+              <p
+                key={link}
+                className="text-gray text-xs font-semibold cursor-pointer"
+              >
                 {link}{" "}
                 {i !== footerLinks.length - 1 && (
-                  <span className="mx-2"> | </span>
+                  <span className="mx-2 cursor-default"> | </span>
                 )}
               </p>
             ))}
