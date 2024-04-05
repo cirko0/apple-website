@@ -26,6 +26,7 @@ const ModelView = ({
       <PerspectiveCamera makeDefault position={[0, 0, 4]} />
 
       <Lights />
+
       <OrbitControls
         makeDefault
         ref={controlRef}

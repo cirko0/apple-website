@@ -34,6 +34,7 @@ const Model = () => {
 
   const tl = gsap.timeline();
 
+  // Animations for the model
   useEffect(() => {
     if (size === "large") {
       animateWithGsapTimeline(tl, small, smallRotation, "#view1", "#view2", {
@@ -50,6 +51,7 @@ const Model = () => {
     }
   }, [size]);
 
+  // Animations for the heading
   useGSAP(() => {
     gsap.to("#heading", {
       y: 0,
@@ -66,6 +68,7 @@ const Model = () => {
 
         <div className="mt-5 flex flex-col items-center">
           <div className="relative h-[75vh] w-full overflow-hidden md:h-[90vh]">
+            {/* I used views because i display 2 models also i need responsivnes and orbit controls */}
             <ModelView
               index={1}
               groupRef={small}

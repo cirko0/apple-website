@@ -25,6 +25,7 @@ const VideoCarousel = () => {
   const [loadedData, setLoadedData] = useState([]);
   const { isEnd, isLastVideo, startPlay, videoId, isPlaying } = video;
 
+  // Video animations
   useGSAP(() => {
     // slider animation to move the video out of the screen and bring the next video in
     gsap.to("#slider", {
@@ -49,12 +50,12 @@ const VideoCarousel = () => {
     });
   }, [isEnd, videoId]);
 
+  // Indicator animations
   useEffect(() => {
     let currentProgress = 0;
     const span = videoSpanRef.current;
 
     if (span[videoId]) {
-      // animation to move the indicator
       const anim = gsap.to(span[videoId], {
         onUpdate: () => {
           // get the progress of the video
@@ -81,12 +82,14 @@ const VideoCarousel = () => {
           }
         },
 
-        // when the video is ended, replace the progress bar with the indicator and change the background color
         onComplete: () => {
           if (isPlaying) {
+            // set the width of the progress bar back to normal
             gsap.to(videoDivRef.current[videoId], {
               width: "12px",
             });
+
+            // set the background color of the progress bar to checked
             gsap.to(span[videoId], {
               backgroundColor: "#afafaf",
             });
@@ -116,6 +119,7 @@ const VideoCarousel = () => {
     }
   }, [videoId, startPlay]);
 
+  // For continuous play of video
   useEffect(() => {
     if (loadedData.length > 3) {
       if (!isPlaying) {
@@ -126,7 +130,6 @@ const VideoCarousel = () => {
     }
   }, [startPlay, videoId, isPlaying, loadedData]);
 
-  // vd id is the id for every video until id becomes number 3
   const handleProcess = (type, i) => {
     switch (type) {
       case "video-end":
@@ -154,6 +157,7 @@ const VideoCarousel = () => {
     }
   };
 
+  // On load of videos
   const handleLoadedMetaData = (i, e) => setLoadedData((pre) => [...pre, e]);
 
   return (
