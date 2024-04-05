@@ -169,7 +169,7 @@ const VideoCarousel = () => {
               <div className="flex-center size-full overflow-hidden rounded-3xl bg-black">
                 <video
                   id="video"
-                  playsInline={true}
+                  playsInline
                   className={`${
                     list.id === 2 && "translate-x-44"
                   } pointer-events-none`}
@@ -186,7 +186,7 @@ const VideoCarousel = () => {
                   }
                   onLoadedMetadata={(e) => handleLoadedMetaData(i, e)}
                 >
-                  <source src={list.video} type="video/mp4" autoPlay />
+                  <source src={list.video} type="video/mp4" />
                 </video>
               </div>
 
