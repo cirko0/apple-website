@@ -22,16 +22,33 @@ const Features = () => {
         scale: 1,
       },
       {
-        scrub: 5.5,
+        scrollTrigger: {
+          trigger: ".g_grow",
+          toggleActions: "restart reverse restart reverse",
+          start: "top 85%",
+          scrub: 5.5,
+        },
       }
     );
 
-    animateWithGsap(".g_text", {
-      opacity: 1,
-      y: 0,
-      ease: "power2.inOut",
-      duration: 1,
-    });
+    animateWithGsap(
+      ".g_text",
+      {
+        opacity: 1,
+        y: 0,
+        ease: "power2.inOut",
+        duration: 1,
+      },
+      {
+        scrollTrigger: {
+          trigger: ".g_text",
+          start: "top bottom-=5%",
+          toggleActions: "restart reverse restart reverse",
+          end: "bottom top+=20%",
+          // markers: true, // Add this line for debugging
+        },
+      }
+    );
 
     gsap.to("#exploreVideo", {
       scrollTrigger: {
@@ -76,15 +93,15 @@ const Features = () => {
               </video>
             </div>
             <div className="flex flex-col w-full relative">
-              <div className="feature-video-container">
-                <div className="overflow-hidden flex-1 h-[50vh]">
+              <div className="feature-video-container h-[700px] md:h-[50vh]">
+                <div className="overflow-hidden flex-1 h-full w-full">
                   <img
                     src={explore1Img}
                     alt="titanium"
                     className="feature-video g_grow"
                   />
                 </div>
-                <div className="overflow-hidden flex-1 h-[50vh]">
+                <div className="overflow-hidden flex-1 h-full w-full">
                   <img
                     src={explore2Img}
                     alt="titanium 2"

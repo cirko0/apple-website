@@ -4,14 +4,21 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
 export const animateWithGsap = (target, animationProps, scrollProps) => {
+  const isSmallDevice = window.innerWidth < 768; // Assuming small devices have a width less than 768px
+  const scroll = scrollProps
+    ? scrollProps
+    : {
+        scrollTrigger: {
+          trigger: target,
+          start: "top bottom-=5%", // Adjusted start position for small devices
+          toggleActions: "restart reverse restart reverse", // Adjusted toggle actions for small devices
+          end: "bottom top+=20%",
+        },
+      };
+
   gsap.to(target, {
     ...animationProps,
-    scrollTrigger: {
-      trigger: target,
-      toggleActions: "play none none none",
-      start: "top 85%",
-      ...scrollProps,
-    },
+    ...scroll,
   });
 };
 

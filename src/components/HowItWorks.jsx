@@ -30,7 +30,10 @@ const HowItWorks = () => {
       {
         scrollTrigger: {
           trigger: ".g_fadeIn",
-          start: "top 85%",
+          start: "top bottom-=5%",
+          toggleActions: "restart reverse restart reverse",
+          end: "bottom top+=20%",
+          // markers: true,
         },
       }
     );
@@ -55,7 +58,7 @@ const HowItWorks = () => {
         </div>
 
         <div className="mt-10 md:mt-20 mb-14">
-          <div className="relative h-full flex-center">
+          <div className="relative h-[170px] md:h-full flex-center">
             <div className="overflow-hidden">
               <img
                 src={frameImg}
